@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 2f;
+    [SerializeField] private float _forwardSpeed = 2f;
     [SerializeField] private float _minSidePos;
     [SerializeField] private float _maxSidePos;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         if (_isRun) {
-            _rigidbody.velocity = Vector3.forward * _speed;
+            _rigidbody.velocity = Vector3.forward * _forwardSpeed;
             _rigidbody.velocity = new Vector3(_input.SideDirection, _rigidbody.velocity.y, _rigidbody.velocity.z);
         }
         else {
